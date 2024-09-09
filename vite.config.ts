@@ -1,5 +1,9 @@
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
+import { resolve, dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __dirname: string = dirname(fileURLToPath(import.meta.url));
 
 // https://vitejs.dev/config/
 export default defineConfig(async () => ({
@@ -16,6 +20,15 @@ export default defineConfig(async () => ({
     watch: {
       // 3. tell vite to ignore watching `src-tauri`
       ignored: ["**/src-tauri/**"],
+    },
+  },
+  // resolve aliases
+  resolve: {
+    alias: {
+      '@components': resolve(__dirname, 'src/components'),
+      '@pages': resolve(__dirname, 'src/pages'),
+      '@themes': resolve(__dirname, 'src/themes'),
+      '@routes': resolve(__dirname, 'src/routes'),
     },
   },
 }));
