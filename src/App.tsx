@@ -1,12 +1,13 @@
 
 import { NavBar } from "@components";
+import { Router } from "@routes";
 
 export const App = () => {
 
   return (
-    <div>
+    <>
       <NavBar />
-      <div>App</div>
-    </div>
+      <Router />
+    </>
   );
 }
